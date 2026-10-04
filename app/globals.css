@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* Shared palette. Components reference roles rather than specific colors. */
+:root {
+  --background: #f6f8f7;
+  --foreground: #1e293b;
+
+  --surface: #ffffff;
+  --surface-hover: #f1f5f3;
+
+  --primary: #15803d;
+  --primary-hover: #166534;
+  --primary-foreground: #ffffff;
+
+  --accent: #f0fdf4;
+  --accent-foreground: #166534;
+
+  --muted: #f1f5f3;
+  --muted-foreground: #64748b;
+
+  --border: #e2e8e5;
+  --border-strong: #cbd5cf;
+  --ring: #15803d;
+
+  --progress: #14532d;
+  --progress-foreground: #ffffff;
+  --progress-muted: #dcfce7;
+  --progress-fill: #4ade80;
+  --progress-track: rgb(255 255 255 / 15%);
+}
+
+/* Expose tokens as Tailwind utilities, including hover and focus variants. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ring: var(--ring);
+
+  --color-progress: var(--progress);
+  --color-progress-foreground: var(--progress-foreground);
+  --color-progress-muted: var(--progress-muted);
+  --color-progress-fill: var(--progress-fill);
+  --color-progress-track: var(--progress-track);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-control: 0.5rem;
+  --radius-option: 0.75rem;
+  --radius-panel: 1rem;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen bg-background font-sans text-foreground;
+  }
+
+  /* Keep keyboard focus visible across interactive controls. */
+  :where(button, a, input, select, textarea, summary):focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
